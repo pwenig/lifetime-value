@@ -14,4 +14,15 @@ feature 'Current Members' do
     click_on "Current Members"
     expect(page).to have_content "Current Memberships"
   end
+
+  scenario "user clicks on current member link and sees current members" do
+    create_user
+    create_user0
+    create_user1
+    create_subscription0
+    login
+    click_on "Current Members"
+    expect(page).to have_content "Scarlett Stark II"
+    expect(page).to_not have_content "Theo Weber"
+  end
 end

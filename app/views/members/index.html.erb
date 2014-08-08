@@ -1,1 +1,6 @@
 <h2>Current Memberships</h2>
+
+<% @members.uniq.each do |member| %>
+<%= member.user.name %>
+  <br>
+<% end %>
